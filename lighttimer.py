@@ -1,3 +1,13 @@
+
+########################################################################################
+#
+# LightTimer.py - Alex Datsko 2024 alexdatsko@gmail.com
+# https://github.com/alexdatsko/LightTimer
+#   Light Controller project [MicroPython]
+#   Raspberry Pi Pico / SB Components Pi Pico Relay Board / HC-501SR PIR sensors
+#
+#
+
 from machine import Pin, Timer
 import time
 
@@ -10,15 +20,17 @@ LightPins = []
 PIRPins = []
 PIRTimers = []
 
-LightPins[0] = Pin('GP18', Pin.OUT)   #24
-LightPins[1] = Pin('GP19', Pin.OUT)   #25
-LightPins[2] = Pin('GP20', Pin.OUT)   #26
-LightPins[3] = Pin('GP21', Pin.OUT)   #27
+# Set pins on Pi Pico to be used as the output pins to the relays. Default pinout = 24,25,26,27 using the red jumpers CLOSED. (The way the board should arrive)
+LightPins[0] = Pin('GP18', Pin.OUT)   #Pin24
+LightPins[1] = Pin('GP19', Pin.OUT)   #Pin25
+LightPins[2] = Pin('GP20', Pin.OUT)   #Pin26
+LightPins[3] = Pin('GP21', Pin.OUT)   #Pin27
 
-PIRPins[0] = Pin('GP6', Pin.IN, Pin.PULL_DOWN) #9
-PIRPins[1] = Pin('GP7', Pin.IN, Pin.PULL_DOWN) #10
-PIRPins[2] = Pin('GP8', Pin.IN, Pin.PULL_DOWN) #11 
-PIRPins[3] = Pin('GP9', Pin.IN, Pin.PULL_DOWN) #12
+# Set pins on Pi Pico to be used for the input pins from the HC-301 sensors
+PIRPins[0] = Pin('GP2', Pin.IN, Pin.PULL_DOWN) #Pin3
+PIRPins[1] = Pin('GP3', Pin.IN, Pin.PULL_DOWN) #Pin4
+PIRPins[2] = Pin('GP4', Pin.IN, Pin.PULL_DOWN) #Pin5
+PIRPins[3] = Pin('GP5', Pin.IN, Pin.PULL_DOWN) #Pin6
 
 def initPins():
   global PIRPins,PIRTimers,LightPins
