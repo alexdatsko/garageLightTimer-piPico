@@ -66,7 +66,7 @@ def checkPIR(GLOBALTIMER):
     print(f"Timer3 triggered")
     PIRTimer3 = time.time() + GLOBALTIMER
     LightPin3.value(1)
-  if (PIRPin3.value()>0):
+  if (PIRPin4.value()>0):
     print(f"Timer4 triggered")
     PIRTimer4 = time.time() + GLOBALTIMER
     LightPin4.value(1)
